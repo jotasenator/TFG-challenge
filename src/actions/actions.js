@@ -92,7 +92,7 @@ export const getItemDeleteGetItems = (id) => {
 
 
 //modify item
-export const modifyItem = async (id,url, name, photo, description, email, phone, hire_date,is_mvp, dispatch, history) => {
+export const modifyItem = async (id, url, name, photo, description, email, phone, hire_date, is_mvp, dispatch, history) => {
     try {
         await axios.put(`${baseURL}${id}`, {
             "id": +id,
@@ -140,11 +140,12 @@ export const modifyItem = async (id,url, name, photo, description, email, phone,
 
 
 //create item
-export const createNewItem = async (id,url, name, photo, description, email, phone, hire_date,is_mvp, dispatch, history) => {
+export const createNewItem = async (url, name, photo, description, email, phone, hire_date, is_mvp, dispatch, history) => {
+    const id = +(url.split('/')[4])
     if (!isNaN(id) && id !== '') {
         try {
             await axios.post(baseURL, {
-                "id": +id,
+                "id": id,
                 "url": +url,
                 "name": name,
                 "photo": photo,
@@ -154,7 +155,7 @@ export const createNewItem = async (id,url, name, photo, description, email, pho
                 "hire_date": hire_date,
                 "is_mvp": is_mvp,
             })
-            const selected = await axios.get(`${baseURL}${id}`)
+            const selected = await axios.get(url)
             const { data } = selected
 
             dispatch({

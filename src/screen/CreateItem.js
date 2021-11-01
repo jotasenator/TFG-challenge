@@ -17,42 +17,46 @@ export default function CreateItem() {
     const dispatch = useDispatch()
     const history = useHistory()
 
+
     const [formValues, handleInputChange] = useForm({
-        id: '',
+        url: '',
         name: '',
-        cost: '',
-        departmentName: '',
-        departmentIdentification: '',
-        categoryName: '',
-        categoryId: ''
+        photo: '',
+        description: '',
+        email: '',
+        phone: '',
+        hire_date: '',
+        is_mvp: ''
     })
 
     const {
-        id,
+        url,
         name,
-        cost,
-        departmentName,
-        departmentIdentification,
-        categoryName,
-        categoryId } = formValues
+        photo,
+        description,
+        email,
+        phone,
+        hire_date,
+        is_mvp
+    } = formValues
 
     const handleCreate = (e) => {
         e.preventDefault()
-        createNewItem(id, name, cost, departmentName, departmentIdentification, categoryName, categoryId, dispatch, history)
-
+        createNewItem(url, name, photo, description, email, phone, hire_date, is_mvp, dispatch, history)
     }
 
     return (
-        <div className='container mt-5 mb-5 pb-3 bg-light'>
+        <div className='container mt-5 mb-5 pb-3 bg-light' style={{ width: '300px' }}>
             <form className='mt-3' onSubmit={handleCreate}>
+
                 <input
                     className='input mb-1 p-3'
                     type='text'
-                    title='Id'
-                    placeholder='Id'
-                    name='id'
+                    title='URL'
+                    placeholder='URL'
+                    name='url'
                     autoComplete='off'
-                    value={id}
+                    value={url}
                     onChange={handleInputChange} />
                 <input
                     className='input mb-1 p-3'
@@ -66,52 +70,61 @@ export default function CreateItem() {
                 <input
                     className='input mb-1 p-3'
                     type='text'
-                    title='Cost'
-                    placeholder='Cost'
-                    name='cost'
+                    title='Photo'
+                    placeholder='Photo'
+                    name='photo'
                     autoComplete='off'
-                    value={cost}
+                    value={photo}
                     onChange={handleInputChange} />
                 <input
                     className='input mb-1 p-3'
                     type='text'
-                    title='Department Name'
-                    placeholder='Department Name'
-                    name='departmentName'
+                    title='Description'
+                    placeholder='Description'
+                    name='description'
                     autoComplete='off'
-                    value={departmentName}
+                    value={description}
                     onChange={handleInputChange} />
                 <input
                     className='input mb-1 p-3'
                     type='text'
-                    title='Department Identification'
-                    placeholder='Department Identification'
-                    name='departmentIdentification'
+                    title='Email'
+                    placeholder='Email'
+                    name='email'
                     autoComplete='off'
-                    value={departmentIdentification}
+                    value={email}
                     onChange={handleInputChange} />
                 <input
                     className='input mb-1 p-3'
                     type='text'
-                    title='Category Name'
-                    placeholder='Category Name'
-                    name='categoryName'
+                    title='Phone'
+                    placeholder='Phone'
+                    name='phone'
                     autoComplete='off'
-                    value={categoryName}
+                    value={phone}
                     onChange={handleInputChange} />
                 <input
                     className='input mb-1 p-3'
                     type='text'
-                    title='Category Id'
-                    placeholder='Category Id'
-                    name='categoryId'
+                    title='HireDate'
+                    placeholder='Hire Date'
+                    name='hire_date'
                     autoComplete='off'
-                    value={categoryId}
+                    value={hire_date}
+                    onChange={handleInputChange} />
+                <input
+                    className='input mb-1 p-3'
+                    type='text'
+                    title='MVPstatus'
+                    placeholder='MVP status'
+                    name='is_mvp'
+                    autoComplete='off'
+                    value={is_mvp}
                     onChange={handleInputChange} />
                 <div className='btn-row'>
 
                     <button className='btn btn-success ' type=' submit'>
-                        Create New Item
+                        New Realtor
                     </button>
                     <button className='btn btn-danger '>
 
