@@ -25,37 +25,33 @@ export const Table = () => {
                     <thead className='table-dark'>
                         <tr className='text-center'>
                             <th scope="col">Id</th>
+                            {/* <th scope="col">URL</th> */}
                             <th scope="col">Name</th>
-                            <th scope="col">Cost</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Department</th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Hire Date</th>
+                            <th scope="col">MVP</th>
                             <th scope="col">Update</th>
                             <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            data?.map((x, index) => (
+                            data?.results.map((x, index) => (
                                 <tr key={x.id}>
                                     <th scope="col">{index + 1}</th>
-                                    <th scope="col">{x.name}</th>
-                                    <th scope="col">$ {x.cost?.toFixed(2)}</th>
-                                    <th className='text-center'>
-                                        {
-                                            x.category.map((y, index) => (
-                                                <span key={index * 0.125}>{y.name}</span>
-                                            ))
-                                        }
-                                    </th>
-                                    <th className='text-center'>
-                                        {
-                                            x.department.map((z, index) => (
-                                                <span key={index * 0.225}>{z.name}</span>
-                                            ))
-                                        }
-                                    </th>
+                                    {/* <th scope="col">{x.url}</th> */}
+                                    <th scope="col" className='name'><p >{x.name}</p></th>
+                                    <th scope="col"><img className='photo' src={x.photo} alt={`${x.name}`}/></th>
+                                    <th scope="col">{x.description}</th>
+                                    <th scope="col">{x.email}</th>
+                                    <th scope="col">{x.phone}</th>
+                                    <th scope="col">{x.hire_date}</th>
+                                    <th scope="col">{x.is_mvp.toString()}</th>
                                     <th><ButtonUpdate id={x.id} /></th>
-                                    <th><ButtonDelete id={x.id} /></th>
+                                    <th ><ButtonDelete id={x.id} /></th>
                                 </tr>
                             ))
                         }
