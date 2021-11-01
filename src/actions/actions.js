@@ -26,7 +26,7 @@ export const getItems = () => {
 
 
 // //delete item
-// export const selectItem = (id) => {
+// export const selectItem = (id=+results[0].url.split('/')[4]) => {
 //     return async (dispatch) => {
 //         try {
 //             const response = await axios.get(`${baseURL}${id}`);
